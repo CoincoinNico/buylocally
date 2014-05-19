@@ -11,5 +11,8 @@
   <h3>Quantité disponible</h3>
   <%= article.quantity %>
 
+  <button><%= link_to "Edit", edit_article_path(article) %></button>
+  <button><%= link_to "Delete", article, method: :delete, data: { confirm: 'Are you sure?' }  %></button>
+
 <% end %>
 
