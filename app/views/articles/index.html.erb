@@ -1,18 +1,23 @@
 <%  @articles.each do |article| %>
+  <div class="row">
+    <div class="col-md-3">
+    <h2><%= article.title %></h2>
+    </div>
+    <div class="col-md-3">
+      <h3>Description</h3>
+      <%= article.description %>
+    </div>
+    <div class="col-md-3">
+      <h3>Prix en Euros</h3>
+      <%= article.price %> Euros TTC
+    </div>
+    <div class="col-md-3">
+      <h3>Quantité disponible</h3>
+      <%= article.quantity %></br>
 
-  <h2><%= article.title %></h2>
-
-  <h3>Description</h3>
-  <%= article.description %>
-
-  <h3>Prix en Euros</h3>
-  <%= article.price %>
-
-  <h3>Quantité disponible</h3>
-  <%= article.quantity %>
-
-  <button><%= link_to "Edit", edit_article_path(article) %></button>
-  <button><%= link_to "Delete", article, method: :delete, data: { confirm: 'Are you sure?' }  %></button>
-
+      <button><%= link_to "Edit", edit_article_path(article) %></button>
+      <button><%= link_to "Delete", article, method: :delete, data: { confirm: 'Are you sure?' }  %></button>
+    </div>
+  </div>
 <% end %>
 
