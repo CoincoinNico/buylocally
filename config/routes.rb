@@ -1,23 +1,29 @@
 Rails.application.routes.draw do
-  get 'articles/new'
 
-  get 'articles/create'
+  root 'articles#index'
+  resources :articles
 
-  get 'articles/update'
+# get 'articles/new' => 'articles#new'
 
-  get 'articles/edit'
+# post 'articles' => 'articles#create'
 
-  get 'articles/destroy'
+# get 'articles' => 'articles#index'
 
-  get 'articles/index'
+# get 'articles/:id' => 'articles#show'
 
-  get 'articles/show'
+# get 'articles/:id/edit' => 'articles#edit'
+
+# patch 'articles/:id' => 'articles#update'
+
+# delete 'articles/:id' => 'articles#destroy'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'articles#index'
+  # root 'articles#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

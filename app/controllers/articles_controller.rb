@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
 before_action :set_article, only: [:update, :edit, :destroy, :show]
 
   def index
+    @articles = Article.all
   end
 
   def show
@@ -33,7 +34,7 @@ before_action :set_article, only: [:update, :edit, :destroy, :show]
   def destroy
     @article.destroy
 
-    flash[:info] = "You've successfully updated your article"
+    flash[:info] = "You've successfully deleted your article"
 
     redirect_to articles_path
   end
