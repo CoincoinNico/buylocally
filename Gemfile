@@ -19,3 +19,4 @@ gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'aws-sdk'
 gem 'nifty-generators', :group => :development
 gem 'figaro'
+gem 'thin'
