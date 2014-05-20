@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'static/creators'
+  get 'static/actualite'
+
   root 'articles#index'
   resources :articles
+  resources :static
 
 # get 'articles/new' => 'articles#new'
 

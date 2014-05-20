@@ -1,4 +1,24 @@
 <%  @articles.each do |article| %>
+
+
+<div class="col-xs-6 col-md-4">
+  CATEGORIES
+</div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-8">
+      <h2><%= article.title %></h2>
+        <h3>Description</h3>
+        <%= article.description %>
+        <h3>Prix en Euros</h3>
+        <%= article.price %> Euros TTC
+        <h3>Quantité disponible</h3>
+        <%= article.quantity %></br>
+        <button><%= link_to "Edit", edit_article_path(article) %></button>
+        <button><%= link_to "Delete", article, method: :delete, data: { confirm: 'Are you sure?' }  %></button>
+    </div>
+  </div>
+<!--
   <div class="row">
     <div class="col-md-3">
       <h2><%= article.title %></h2>
@@ -15,9 +35,7 @@
       <h3>Quantité disponible</h3>
       <%= article.quantity %></br>
 
-      <button><%= link_to "Edit", edit_article_path(article) %></button>
-      <button><%= link_to "Delete", article, method: :delete, data: { confirm: 'Are you sure?' }  %></button>
     </div>
-  </div>
+  </div> -->
 <% end %>
 
