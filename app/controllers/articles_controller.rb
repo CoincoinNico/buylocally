@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.create(article_params)
-    redirect_to article
+    redirect_to @article
   end
 
   def update
@@ -42,7 +42,7 @@ private
   end
 
   def article_params
-    params.require(:article).permit(:title, :description, :price, :quantity, :article_images)
+    params.require(:article).permit(:title, :description, :price, :quantity, :picture)
   end
 
 end

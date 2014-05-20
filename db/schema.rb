@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140519144809) do
+ActiveRecord::Schema.define(version: 20140520054949) do
 
   create_table "article_images", force: true do |t|
     t.string   "caption"
@@ -42,6 +42,18 @@ ActiveRecord::Schema.define(version: 20140519144809) do
   end
 
   add_index "comments", ["single_id"], name: "index_comments_on_single_id", using: :btree
+
+  create_table "pictures", force: true do |t|
+    t.integer  "article_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+  end
+
+  add_index "pictures", ["article_id"], name: "index_pictures_on_article_id", using: :btree
 
   create_table "singles", force: true do |t|
     t.string   "name"

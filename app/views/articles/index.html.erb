@@ -1,4 +1,4 @@
-<h1>Find all the articles uploaded on our website !</h1>
+<h1>Find all the items uploaded on our website !</h1>
 
 <%  @articles.each do |article| %>
   <div class="row">
@@ -10,16 +10,15 @@
       <%= article.description %>
     </div>
     <div class="col-md-3">
-      <h3>Prix en Euros</h3>
+      <h3>Price in Euros</h3>
       <%= article.price %> Euros TTC
     </div>
     <div class="col-md-3">
-      <h3>Quantité disponible</h3>
-      <%= article.quantity %></br>
-
-      <button><%= link_to "Edit", edit_article_path(article) %></button>
-      <button><%= link_to "Delete", article, method: :delete, data: { confirm: 'Are you sure?' }  %></button>
+      <h3>Quantity available</h3>
+      <%= article.quantity %>
     </div>
+    <button><%= link_to "Edit", edit_article_path(article) %></button>
+    <button><%= link_to "Delete", article, method: :delete, data: { confirm: 'Are you sure?' } %></button>
   </div>
 <% end %>
 

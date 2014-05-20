@@ -1,0 +1,52 @@
+
+<form role="form">
+
+  <div class="form-group">
+    <label for="exampleInputEmail1"><%= f.label :title %></label>
+    <input type="email" class="form-control" id="%= f.text_field :title %>" placeholder="Enter title">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputPassword1"><%= f.label :description %></label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="enter Description">
+  </div>
+
+  <%= f.text_field :description %>
+
+  <div class="form-group">
+    <label for="exampleInputPassword1"><%= f.label :price %></label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="enter Price">
+  </div>
+
+  <%= f.number_field :price %>
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">Quantity</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="enter Quantity">
+  </div>
+
+  <%= f.number_field :quantity %> </br>
+
+  <div class="form-group">
+    <label for="exampleInputFile"><%= f.label :quantity %></label>
+    <input type="file" id="exampleInputFile">
+    <p class="help-block">Example block-level help text here.</p>
+  </div>
+
+   <%= f.label :image %>
+  <%= f.file_field :article_image, class: "form-control" %>
+
+  <%= f.submit %>
+
+
+
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Check me out
+    </label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+
+</form>
+
+<% end %>
