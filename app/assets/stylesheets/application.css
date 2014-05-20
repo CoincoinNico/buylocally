@@ -16,7 +16,7 @@
 
  .footer {
     position: fixed;
-    bottom: 0px;
+    bottom: 5px;
     border-top: 1px solid #EAEAEA;
     margin: 60px auto 20px;
     padding: 8px 0px 0px;
@@ -25,8 +25,3 @@
     font-size: 12px;
  }
 
-.margin-right {
-
-  text-align: left;
-
-}
