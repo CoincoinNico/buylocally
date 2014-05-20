@@ -10,12 +10,12 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
-    # 3.times {@article.article_images.build}
+    # 3.times {@article.picture.build}
   end
 
   def edit
     @article = Article.find(params[:id])
-    # 3.times { @article.article_images.build }
+    # 3.times { @article.picture.build }
   end
 
   def create
@@ -25,13 +25,13 @@ class ArticlesController < ApplicationController
 
   def update
     @article.update!(article_params)
-    flash[:info] = "You've successfully updated your article"
+    flash[:info] = "You've successfully updated your item"
     redirect_to @article
   end
 
   def destroy
     @article.destroy
-    flash[:info] = "You've successfully deleted your article"
+    flash[:info] = "You've successfully deleted your item"
     redirect_to articles_path
   end
 
