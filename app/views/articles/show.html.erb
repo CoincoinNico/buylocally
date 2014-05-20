@@ -14,5 +14,10 @@
 
 <%= @article.quantity %>
 
+<% @article.assets.each do |asset| %>
+  <%= image_tag asset.image.url(:small) %>
+<% end %>
+
+
 <%= link_to "Edit", edit_article_path %>
 <%= link_to "Back", articles_path %>

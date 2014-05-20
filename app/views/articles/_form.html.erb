@@ -1,4 +1,4 @@
-<%= form_for @article, html: { multipart: true } do |f| %>
+<%= form_for @article, :html => { :multipart => true } do |f| %>
   <% if @article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@article.errors.count, "error") %> prohibited this item from being saved:</h2>
@@ -27,10 +27,16 @@
     <%= f.label :quantity %><br>
     <%= f.number_field :quantity %>
   </div>
-  <div class="form-group">
-    <%= f.label :picture %>
-    <%= f.file_field :picture, class: "form-control" %>
+  <div class="field">
+    <%= file_field_tag "images[]", type: :file, multiple: true %>
   </div>
+  <h4>Item images</h4>
+  <%= f.fields_for :assets do |image| %>
+      <p>
+        <%= link_to image_tag(image.object.image.url(:thumb)),image.object.image.url(:original)  %>
+      </p>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -1,4 +1,4 @@
 class Article < ActiveRecord::Base
-  has_many :pictures
-  has_attached_file :picture
+  has_many :assets
+  accepts_nested_attributes_for :assets
 end

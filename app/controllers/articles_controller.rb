@@ -10,21 +10,32 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
-    # 3.times {@article.picture.build}
   end
 
   def edit
     @article = Article.find(params[:id])
-    # 3.times { @article.picture.build }
   end
 
   def create
-    @article = Article.create(article_params)
-    redirect_to @article
+    @article = Article.new(article_params)
+    if @article.save
+      if params[:images]
+        params[:images].each { |image|
+          @article.assets.create(image: image)
+        }
+      end
+    redirect_to @article, notice: "Item was successfully created!"
+    end
   end
 
   def update
-    @article.update!(article_params)
+    if params[:images]
+      params[:images].each do |image|
+        @article.assets.create(image: image)
+      end
+    else
+      @article.update!(article_params)
+    end
     flash[:info] = "You've successfully updated your item"
     redirect_to @article
   end
@@ -42,7 +53,7 @@ private
   end
 
   def article_params
-    params.require(:article).permit(:title, :description, :price, :quantity, :picture)
+    params.require(:article).permit(:title, :description, :price, :quantity, assets_attributes: [:id, :image] )
   end
 
 end
