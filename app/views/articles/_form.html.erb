@@ -1,5 +1,14 @@
 <%= form_for @article, :html => { :multipart => true } do |f| %>
-  <% if @article.errors.any? %>
+
+<form role="form">
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="form-group">
+      </div>
+    </div>
+
+<!--   <% if @article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@article.errors.count, "error") %> prohibited this item from being saved:</h2>
 
@@ -9,37 +18,38 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+  <% end %> -->
 
-  <div class="field">
+  <div class="col-md-6">
+    <div class="form-group text-align">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
-  </div>
-  <div class="field">
     <%= f.label :description %><br>
     <%= f.text_field :description %>
-  </div>
-  <div class="field">
     <%= f.label :price %><br>
     <%= f.number_field :price %>
-  </div>
-  <div class="field">
     <%= f.label :quantity %><br>
     <%= f.number_field :quantity %>
-  </div>
-  <div class="field">
-    <%= file_field_tag "images[]", type: :file, multiple: true %>
-  </div>
-  <h4>Item images</h4>
-  <%= f.fields_for :assets do |image| %>
+    <div class="field">
+      <%= file_field_tag "images[]", type: :file, multiple: true %>
+    </div>
+    <h4>Item images</h4>
+      <%= f.fields_for :assets do |image| %>
       <p>
         <%= link_to image_tag(image.object.image.url(:thumb)),image.object.image.url(:original)  %>
       </p>
-  <% end %>
-
-  <div class="actions">
+      <% end %>
     <%= f.submit %>
   </div>
+</div>
+
+ <div class="col-md-3">
+      <div class="form-group">
+      </div>
+    </div>
+  </div>
+</form>
 
 <% end %>
+
 
