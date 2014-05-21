@@ -1,18 +1,23 @@
-<h1>Articles#show</h1>
+<h1>Item</h1>
 
 <h2><%= @article.title %></h2>
-
 
 <h3>Description</h3>
 
 <%= @article.description %>
 
-
-<h3>Prix en Euros</h3>
+<h3>Price in Euros</h3>
 
 <%= @article.price %>
 
-
-<h3>Quantité disponible</h3>
+<h3>Quantity available</h3>
 
 <%= @article.quantity %>
+
+<% @article.assets.each do |asset| %>
+  <%= image_tag asset.image.url(:small) %>
+<% end %>
+
+
+<%= link_to "Edit", edit_article_path %>
+<%= link_to "Back", articles_path %>

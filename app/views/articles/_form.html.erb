@@ -1,5 +1,4 @@
-
-<%= form_for @article, html: { role: "form" } do |f| %>
+<%= form_for @article, :html => { :multipart => true } do |f| %>
 
 <form role="form">
 
@@ -9,59 +8,47 @@
       </div>
     </div>
 
-    <div class="col-md-6">
-      <div class="form-group text-align">
-        <%= f.label :title %></br>
-        <%= f.text_field :title %></br></br>
-        <%= f.label :description %></br>
-        <%= f.text_field :description %></br></br>
-        <%= f.label :price %></br>
-        <%= f.number_field :price %></br></br>
-        <%= f.label :quantity %></br>
-        <%= f.number_field :quantity %></br></br>
-        <%= f.submit %></br>
-      </div>
-    </div>
+<!--   <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this item from being saved:</h2>
 
-    <div class="col-md-3">
+      <ul>
+      <% @article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %> -->
+
+  <div class="col-md-6">
+    <div class="form-group text-align">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity %>
+    <div class="field">
+      <%= file_field_tag "images[]", type: :file, multiple: true %>
+    </div>
+    <h4>Item images</h4>
+      <%= f.fields_for :assets do |image| %>
+      <p>
+        <%= link_to image_tag(image.object.image.url(:thumb)),image.object.image.url(:original)  %>
+      </p>
+      <% end %>
+    <%= f.submit %>
+  </div>
+</div>
+
+ <div class="col-md-3">
       <div class="form-group">
       </div>
     </div>
   </div>
 </form>
-
-<!--
-
-    <form role="form">
-      <div class="form-group">
-        <label for=""> title </label>
-        <input type="name" class="form-control" id="nameId" placeholder="Enter great name">
-      </div>
-
-
-
-      <textarea class="form-control" rows="3">
-        <label for="">:description</label>
-        <input type="description" class="form-control" id="" placeholder="Enter description">
-      </textarea>
-
-
-
-
-      <div class="form-group">
-        <label for="exampleInputFile">File input</label>
-        <input type="file" id="exampleInputFile">
-        <p class="help-block">Example block-level help text here.</p>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> Check me out
-        </label>
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
- -->
-
 
 <% end %>
 
