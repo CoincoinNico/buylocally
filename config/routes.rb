@@ -11,19 +11,13 @@ Rails.application.routes.draw do
   resources :articles
   resources :static
 
-# get 'articles/new' => 'articles#new'
-
-# post 'articles' => 'articles#create'
-
-# get 'articles' => 'articles#index'
-
-# get 'articles/:id' => 'articles#show'
-
-# get 'articles/:id/edit' => 'articles#edit'
-
-# patch 'articles/:id' => 'articles#update'
-
-# delete 'articles/:id' => 'articles#destroy'
+ #get 'articles/new' => 'articles#new'
+ #post 'articles' => 'articles#create'
+ #get 'articles' => 'articles#index'
+ #get 'articles/:id' => 'articles#show'
+ #get 'articles/:id/edit' => 'articles#edit'
+ #patch 'articles/:id' => 'articles#update'
+ #delete 'articles/:id' => 'articles#destroy'
 
 
 
