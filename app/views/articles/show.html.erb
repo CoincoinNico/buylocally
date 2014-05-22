@@ -14,10 +14,16 @@
 
 <%= @article.quantity %>
 
-<% @article.assets.each do |asset| %>
-  <%= image_tag asset.image.url(:small) %>
+<% @article.pictures.each do |picture| %>
+  <%= image_tag picture.file.url(:small) %>
 <% end %>
 
 
-<%= link_to "Edit", edit_article_path %>
-<%= link_to "Back", articles_path %>
+<%= link_to edit_article_path do %>
+  <button class="btn btn-warning">Editer infos <i class="fa fa-pencil"></i></button>
+<% end %>
+
+
+<%= link_to new_article_picture_path(@article) do %>
+  <button class="btn btn-success">Gerer photos <i class="fa fa-upload"></i></button>
+<% end %>

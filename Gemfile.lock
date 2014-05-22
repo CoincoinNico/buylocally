@@ -42,6 +42,11 @@ GEM
       json (~> 1.4)
       nokogiri (>= 1.4.4)
     bcrypt (3.1.7)
+    better_errors (1.1.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     bootstrap-sass (3.1.1.1)
       sass (~> 3.2)
     builder (3.2.2)
@@ -59,6 +64,7 @@ GEM
     coffee-script-source (1.7.0)
     columnize (0.8.9)
     daemons (1.1.9)
+    debug_inspector (0.0.2)
     debugger (1.6.6)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
@@ -147,6 +153,7 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    remotipart (1.2.1)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -202,6 +209,8 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk
+  better_errors
+  binding_of_caller
   bootstrap-sass
   coffee-rails (~> 4.0.0)
   devise
@@ -216,6 +225,7 @@ DEPENDENCIES
   pry-debugger
   rails (= 4.1.1)
   rails_12factor
+  remotipart (~> 1.2)
   sass-rails
   sdoc (~> 0.4.0)
   spring

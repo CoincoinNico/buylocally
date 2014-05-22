@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   get 'static/actualite'
   get 'static/aide'
 
-  resources :static
-
-  resources :articles
+  resources :articles do
+    resources :pictures, only: [:new, :create, :edit, :update, :destroy]
+  end
 
 
  #get 'articles/new' => 'articles#new'

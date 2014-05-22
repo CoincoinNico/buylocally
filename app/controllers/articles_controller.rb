@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:update, :edit, :destroy, :show]
 
+  layout "application", only: [:index]
+
   def index
     @articles = Article.all
   end
@@ -17,25 +19,13 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article_params)
-    if @article.save
-      if params[:images]
-        params[:images].each { |image|
-          @article.assets.create(image: image)
-        }
-      end
-    redirect_to @article, notice: "Item was successfully created!"
-    end
+    @article = Article.create(article_params)
+    flash[:info] = "You've successfully created your item"
+    redirect_to @article
   end
 
   def update
-    if params[:images]
-      params[:images].each do |image|
-        @article.assets.create(image: image)
-      end
-    else
-      @article.update!(article_params)
-    end
+    @article.update!(article_params)
     flash[:info] = "You've successfully updated your item"
     redirect_to @article
   end
@@ -53,7 +43,7 @@ private
   end
 
   def article_params
-    params.require(:article).permit(:title, :description, :price, :quantity, assets_attributes: [:id, :image] )
+    params.require(:article).permit(:title, :description, :price, :quantity)
   end
 
 end

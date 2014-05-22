@@ -1,44 +1,36 @@
-<%= form_for @article, :html => { :multipart => true } do |f| %>
-
-<form role="form">
-
-  <div class="row">
-    <div class="col-md-3">
-      <div class="form-group">
-      </div>
-    </div>
+<%= form_for @article do |f| %>
 
 
-  <div class="col-md-6">
-    <div class="form-group text-align">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-    <%= f.label :price %><br>
-    <%= f.number_field :price %>
-    <%= f.label :quantity %><br>
-    <%= f.number_field :quantity %>
-    <div class="field">
-      <%= file_field_tag "images[]", type: :file, multiple: true %>
-    </div>
-    <h4>Item images</h4>
-      <% f.fields_for :assets do |image| %>
-      <p>
-        <%= link_to image_tag(image.object.image.url(:thumb)),image.object.image.url(:original)  %>
-      </p>
-      <% end %>
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control"%>
   </div>
-</div>
 
- <div class="col-md-3">
-      <div class="form-group">
-      </div>
-    </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: "form-control"%>
   </div>
-</form>
+
+  <div class="form-group">
+    <%= f.label :price %>
+    <%= f.number_field :price, class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity, class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <% if @article.new_record? %>
+      <%= f.submit "Creer", class: "btn btn-primary" %>
+    <% else %>
+    <%= f.submit "Editer", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
 
 <% end %>
+
 
 
