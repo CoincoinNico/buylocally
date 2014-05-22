@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :pictures, only: [:new, :create, :edit, :update, :destroy]
   end
 
+  get'articles/:id/add_to_card' => "articles#add_to_cart", as: "add_to_cart"
+
 
  #get 'articles/new' => 'articles#new'
  #post 'articles' => 'articles#create'

@@ -31,3 +31,6 @@ gem "binding_of_caller"
 gem 'bootstrap-sass'
 
 gem 'remotipart', '~> 1.2'
+
+
+gem 'acts_as_shopping_cart', '~> 0.2.1'
