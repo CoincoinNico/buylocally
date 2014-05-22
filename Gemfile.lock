@@ -84,9 +84,12 @@ GEM
     jbuilder (2.0.7)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
-    jquery-rails (3.1.0)
+    jquery-rails (2.2.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-turbolinks (2.0.2)
+      railties (>= 3.1.0)
+      turbolinks
     json (1.8.1)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -203,12 +206,13 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk
-  bootstrap-sass
+  bootstrap-sass (~> 3.1.1)
   coffee-rails (~> 4.0.0)
   devise
   figaro
   jbuilder (~> 2.0)
-  jquery-rails
+  jquery-rails (= 2.02)
+  jquery-turbolinks
   mailcatcher
   nifty-generators
   paperclip!
@@ -217,12 +221,8 @@ DEPENDENCIES
   pry-debugger
   rails (= 4.1.1)
   rails_12factor
-<<<<<<< HEAD
   remotipart (~> 1.2)
-  sass-rails (~> 4.0.3)
-=======
-  sass-rails
->>>>>>> 333d91e62411736fcb652a0ce037fb61f4229963
+  sass-rails (>= 3.2)
   sdoc (~> 0.4.0)
   spring
   turbolinks

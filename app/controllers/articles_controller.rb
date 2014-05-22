@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
-  respond_to :js, :html
   before_action :set_article, only: [:update, :edit, :destroy, :show]
+
+  respond_to :js, :html
 
   def index
     @articles = Article.all
@@ -19,7 +20,10 @@ class ArticlesController < ApplicationController
   def create
     article = Article.create(article_params)
     article.assets.create(asset_params)
-    redirect_to article_path(article), notice: "Item was successfully created!"
+    # respond_to do |format|
+    #   format.js
+    #   format.html { redirect_to @article }
+    # end
   end
 
   def update

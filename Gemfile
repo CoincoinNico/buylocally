@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby "2.1.1"
 
 # Use devise for loggin log out
 gem 'devise'
@@ -8,11 +7,11 @@ gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'remotipart', '~> 1.2'
 gem 'rails', '4.1.1'
 gem 'pg'
-gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'jquery-rails'
 gem 'turbolinks'
+gem 'jquery-turbolinks'
+gem 'jquery-rails', '2.02'
 gem 'pry'
 gem 'pry-debugger'
 gem 'mailcatcher', group: :development
@@ -23,9 +22,6 @@ gem 'rails_12factor', group: :production
 gem 'aws-sdk'
 gem 'nifty-generators', :group => :development
 gem 'figaro'
-<<<<<<< HEAD
-=======
-gem 'thin'
 
-gem 'bootstrap-sass'
->>>>>>> 333d91e62411736fcb652a0ce037fb61f4229963
+gem 'sass-rails', '>= 3.2'
+gem 'bootstrap-sass', '~> 3.1.1'

@@ -1,38 +1,22 @@
 <%= form_for @article, :html => { :multipart => true }, :remote => true do |f| %>
 
-<form role="form">
-
-  <div class="row">
-    <div class="col-md-3">
-      <div class="form-group">
-      </div>
-    </div>
-
-
-  <div class="col-md-6">
+  <div class="col-md-6 col-md-offset-6">
     <div class="form-group text-align">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-    <%= f.label :price %><br>
-    <%= f.number_field :price %>
-    <%= f.label :quantity %><br>
-    <%= f.number_field :quantity %>
-    <div id="assets-container">
-      <%= render partial: 'assets' %>
-    </div>
-    <%= f.file_field :image, class: "upload" %>
-    <%= f.submit %>
-  </div>
-</div>
-
- <div class="col-md-3">
-      <div class="form-group">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+      <%= f.label :description %><br>
+      <%= f.text_field :description %>
+      <%= f.label :price %><br>
+      <%= f.number_field :price %>
+      <%= f.label :quantity %><br>
+      <%= f.number_field :quantity %>
+      <div id="assets-container">
+        <%= render partial: 'assets' %>
       </div>
+      <%= f.file_field :image, class: "upload" %>
+      <%= f.submit %>
     </div>
   </div>
-</form>
 
 <% end %>
 
