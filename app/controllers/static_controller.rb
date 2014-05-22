@@ -9,4 +9,9 @@ class StaticController < ApplicationController
   def actualite
 
   end
+
+  def aide
+
+  end
+
 end

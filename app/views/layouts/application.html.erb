@@ -9,13 +9,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+
 
     <nav class="navbar navbar-default" role="navigation">
       <div class="container-fluid">
@@ -30,26 +27,24 @@
           <a class="navbar-brand" href="/articles">Buylocally</a>
         </div>
 
+
+
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
 
-
-            <li><a href="/static/creators">Creators</a></li>
+            <li><%= link_to "Creators", static_creators_path %></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Articles <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li>
-                  <%= link_to "New article", new_article_path %>
-                </li>
-                <li><a href="/articles/edit">Edit an article</a></li>
-
-                <li><a href="">list all articles</a></li>
+                <li><%= link_to "New article", new_article_path %></li>
+                <li><%= link_to "list all articles", articles_path%></li>
                 <li class="divider"></li>
-                <li><a href="/articles/destroy">Delete article</a></li>
+                <li><a href="">Delete article</a></li>
               </ul>
             </li>
-            <li><a href="/static/actualite">actualité</a></li>
+            <li><%= link_to "Actualité", static_actualite_path%></li>
+            <li><%= link_to "Aide", static_aide_path %></li>
           </ul>
           <form class="navbar-form navbar-right" role="search">
             <div class="form-group">
