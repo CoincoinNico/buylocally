@@ -24,4 +24,10 @@ gem 'nifty-generators', :group => :development
 gem 'figaro'
 gem 'thin'
 
+gem "better_errors"
+gem "binding_of_caller"
+
+
 gem 'bootstrap-sass'
+
+gem 'remotipart', '~> 1.2'

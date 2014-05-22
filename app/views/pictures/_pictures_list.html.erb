@@ -1,0 +1,8 @@
+<% @article.pictures.each do |picture| %>
+  <% unless picture.new_record? %>
+    <fieldset>
+      <%= image_tag picture.file.url(:small) %>
+      <%= link_to "Destroy", article_picture_path(@article, picture), method: :delete, remote: true, class: "delete-image" %>
+    </fieldset>
+  <% end %>
+<% end %>
