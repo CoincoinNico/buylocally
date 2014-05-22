@@ -1,20 +1,33 @@
 class ShoppingCartsController < ApplicationController
-  before_filter :extract_shopping_cart
+   before_action :set_article, only: [:update, :edit, :destroy, :show, :add_to_cart]
 
-  def create
-    @product = Product.find(params[:product_id])
-    @shopping_cart.add(@product, @product.price)
-    redirect_to shopping_cart_path
-  end
+
 
   def show
 
   end
 
-  private
-  def extract_shopping_cart
-    shopping_cart_id = session[:shopping_cart_id]
-    @shopping_cart = session[:shopping_cart_id] ? ShoppingCart.find(shopping_cart_id) : ShoppingCart.create
-    session[:shopping_cart_id] = @shopping_cart.id
+  def add_to_cart
+    @cart = session[:cart_id] ? ShoppingCart.find(session[:cart_id]) : ShoppingCart.create
+    session[:cart_id] = @cart.id
+
+    @cart.add(@article, @article.price)
+
+    redirect_to articles_path
+
   end
+
+  def create
+    @article = Article.find(params[:id])
+    @shopping_cart.add(@product, @product.price)
+    redirect_to shopping_cart_path
+  end
+
+  private
+
+  def set_article
+    @article = Article.find(params[:id])
+
+  end
+
 end

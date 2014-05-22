@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  get'articles/:id/add_to_cart' => "shopping_carts#add_to_cart", as: "add_to_cart"
+
+
   get 'static/creators'
   get 'static/actualite'
   get 'static/aide'
@@ -11,19 +14,6 @@ Rails.application.routes.draw do
   resources :articles do
     resources :pictures, only: [:new, :create, :edit, :update, :destroy]
   end
-
-  get'articles/:id/add_to_card' => "articles#add_to_cart", as: "add_to_cart"
-
-
- #get 'articles/new' => 'articles#new'
- #post 'articles' => 'articles#create'
- #get 'articles' => 'articles#index'
- #get 'articles/:id' => 'articles#show'
- #get 'articles/:id/edit' => 'articles#edit'
- #patch 'articles/:id' => 'articles#update'
- #delete 'articles/:id' => 'articles#destroy'
-
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
