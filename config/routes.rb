@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
 
   resources :articles
+  resources :assets
   resources :static
 
  #get 'articles/new' => 'articles#new'

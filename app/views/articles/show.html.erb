@@ -15,7 +15,7 @@
 <%= @article.quantity %>
 
 <% @article.assets.each do |asset| %>
-  <%= image_tag asset.image.url(:small) %>
+  <%= image_tag asset.image.url(:thumb) %>
 <% end %>
 
 
