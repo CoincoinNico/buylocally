@@ -6,11 +6,12 @@ Rails.application.routes.draw do
 
   get 'static/creators'
   get 'static/actualite'
-
+  get 'static/aide'
 
   resources :articles
   resources :assets
   resources :static
+
 
  #get 'articles/new' => 'articles#new'
  #post 'articles' => 'articles#create'

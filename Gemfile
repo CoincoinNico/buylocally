@@ -8,7 +8,7 @@ gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'remotipart', '~> 1.2'
 gem 'rails', '4.1.1'
 gem 'pg'
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
@@ -23,3 +23,9 @@ gem 'rails_12factor', group: :production
 gem 'aws-sdk'
 gem 'nifty-generators', :group => :development
 gem 'figaro'
+<<<<<<< HEAD
+=======
+gem 'thin'
+
+gem 'bootstrap-sass'
+>>>>>>> 333d91e62411736fcb652a0ce037fb61f4229963

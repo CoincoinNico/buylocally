@@ -1,0 +1,22 @@
+// Bootstrap custom variables
+$component-active-bg: #EAEAEA;
+
+@import "bootstrap";
+
+.footer {
+
+    bottom: 0px;
+    border-top: 1px solid #EAEAEA;
+    margin: 60px auto 20px;
+    padding: 8px 0px 0px;
+    clear: left;
+    display: block;
+    font-size: 12px;
+ }
+
+.center {
+  text-align: center;
+  border-top: 20px;
+  color: #32CD32;
+
+}
