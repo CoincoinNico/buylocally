@@ -22,6 +22,6 @@ gem 'rails_12factor', group: :production
 gem 'aws-sdk'
 gem 'nifty-generators', :group => :development
 gem 'figaro'
-
-gem 'sass-rails', '>= 3.2'
-gem 'bootstrap-sass', '~> 3.1.1'
+gem "better_errors"
+gem "binding_of_caller"
+gem 'bootstrap-sass'

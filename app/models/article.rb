@@ -1,3 +1,3 @@
 class Article < ActiveRecord::Base
-  has_many :assets
+  has_many :pictures
 end

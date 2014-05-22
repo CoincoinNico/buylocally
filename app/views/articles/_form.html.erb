@@ -1,23 +1,35 @@
-<%= form_for @article, :html => { :multipart => true }, :remote => true do |f| %>
+<%= form_for @article do |f| %>
 
-  <div class="col-md-6 col-md-offset-6">
-    <div class="form-group text-align">
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
-      <%= f.label :description %><br>
-      <%= f.text_field :description %>
-      <%= f.label :price %><br>
-      <%= f.number_field :price %>
-      <%= f.label :quantity %><br>
-      <%= f.number_field :quantity %>
-      <div id="assets-container">
-        <%= render partial: 'assets' %>
-      </div>
-      <%= f.file_field :image, class: "upload" %>
-      <%= f.submit %>
-    </div>
+
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :price %>
+    <%= f.number_field :price, class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity, class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <% if @article.new_record? %>
+      <%= f.submit "Creer", class: "btn btn-primary" %>
+    <% else %>
+    <%= f.submit "Editer", class: "btn btn-primary" %>
+    <% end %>
   </div>
 
 <% end %>
+
 
 

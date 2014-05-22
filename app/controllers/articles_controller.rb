@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:update, :edit, :destroy, :show]
 
-  respond_to :js, :html
+  layout "application", only: [:index]
 
   def index
     @articles = Article.all
@@ -18,21 +18,15 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    article = Article.create(article_params)
-    article.assets.create(asset_params)
-    # respond_to do |format|
-    #   format.js
-    #   format.html { redirect_to @article }
-    # end
+    @article = Article.create(article_params)
+    flash[:info] = "You've successfully created your item"
+    redirect_to @article
   end
 
   def update
     @article.update!(article_params)
-    @article.assets.create(asset_params)
-    respond_to do |format|
-      format.js
-      format.html { redirect_to @article }
-    end
+    flash[:info] = "You've successfully updated your item"
+    redirect_to @article
   end
 
   def destroy
@@ -49,10 +43,6 @@ private
 
   def article_params
     params.require(:article).permit(:title, :description, :price, :quantity)
-  end
-
-  def asset_params
-    params.require(:article).permit(:image, :id)
   end
 
 end

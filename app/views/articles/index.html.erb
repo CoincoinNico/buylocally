@@ -22,10 +22,11 @@
               <div class="caption">
                 <h3>Premiere Photo</h3>
                 <p><%= article.title %>  <%= article.price %></p>
-                <p>
-                  <a href="#" class="btn btn-primary" role="button">Button</a>
-                   <a href="#" class="btn btn-default" role="button">Button</a>
-                </p>
+
+                <%= link_to article_path(article) do %>
+                  <button class="btn btn-primary">Consulter</button>
+                <% end %>
+
               </div>
             </div>
           </div>

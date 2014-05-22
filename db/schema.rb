@@ -13,16 +13,8 @@
 
 ActiveRecord::Schema.define(version: 20140520092809) do
 
-  create_table "article_images", force: true do |t|
-    t.string   "caption"
-    t.integer  "article_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
-  end
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -33,49 +25,17 @@ ActiveRecord::Schema.define(version: 20140520092809) do
     t.datetime "updated_at"
   end
 
-  create_table "assets", force: true do |t|
-    t.integer  "article_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-  end
-
-  add_index "assets", ["article_id"], name: "index_assets_on_article_id", using: :btree
-
-  create_table "comments", force: true do |t|
-    t.string   "comment"
-    t.text     "body"
-    t.integer  "single_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "comments", ["single_id"], name: "index_comments_on_single_id", using: :btree
-
   create_table "pictures", force: true do |t|
     t.integer  "article_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
-    t.integer  "picture_file_size"
-    t.datetime "picture_updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
   end
 
   add_index "pictures", ["article_id"], name: "index_pictures_on_article_id", using: :btree
-
-  create_table "singles", force: true do |t|
-    t.string   "name"
-    t.integer  "age"
-    t.string   "sex"
-    t.string   "description"
-    t.integer  "note"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
