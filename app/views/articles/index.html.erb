@@ -1,4 +1,4 @@
-<div class="container">
+<%  @articles.each do |article| %>
   <div class="row">
     <div class="col-sm-3">
       <ul class="nav nav-pills nav-stacked">
@@ -9,28 +9,26 @@
         <li><a href="#">Homme</a></li>
         <li><a href="#">Enfants</a></li>
         <li><a href="#">Truc bien Moche</a></li>
-
       </ul>
+    <div class="col-md-3">
+      <h2><%= article.title %></h2>
     </div>
+    <div class="col-md-3">
+      <h3>Description</h3>
+      <%= article.description %>
+    </div>
+    <div class="col-md-3">
+      <h3>Prix en Euros</h3>
+      <%= article.price %> Euros TTC
+    </div>
+    <div class="col-md-3">
+      <h3>Quantité disponible</h3>
+      <%= article.quantity %></br>
 
-    <div class="col-sm-9">
-      <div class="row">
-        <%  @articles.each do |article| %>
-          <div class="col-sm-4">
-            <div class="thumbnail">
-              <img data-src="holder.js/100x100" alt="mettre une photo">
-              <div class="caption">
-                <h3>Premiere Photo</h3>
-                <p><%= article.title %>  <%= article.price %></p>
-                <p>
-                  <a href="#" class="btn btn-primary" role="button">Button</a>
-                   <a href="#" class="btn btn-default" role="button">Button</a>
-                </p>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
+      <button><%= link_to "Edit", edit_article_path(article) %></button>
+      <button><%= link_to "Delete", article, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </button>
     </div>
   </div>
-</div>
+<% end %>
+
