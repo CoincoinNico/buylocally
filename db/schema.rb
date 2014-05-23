@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140520092809) do
+ActiveRecord::Schema.define(version: 20140523090148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 20140520092809) do
     t.datetime "updated_at"
   end
 
+  create_table "cart_items", force: true do |t|
+    t.integer "owner_id"
+    t.string  "owner_type"
+    t.integer "quantity"
+    t.integer "item_id"
+    t.string  "item_type"
+    t.float   "price"
+  end
+
   create_table "pictures", force: true do |t|
     t.integer  "article_id"
     t.datetime "created_at"
@@ -36,6 +45,22 @@ ActiveRecord::Schema.define(version: 20140520092809) do
   end
 
   add_index "pictures", ["article_id"], name: "index_pictures_on_article_id", using: :btree
+
+  create_table "shopping_cart_items", force: true do |t|
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.integer  "quantity"
+    t.integer  "item_id"
+    t.string   "item_type"
+    t.float    "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shopping_carts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
