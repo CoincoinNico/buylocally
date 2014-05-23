@@ -1,0 +1,6 @@
+<% @article.assets.each do |asset| %>
+  <fieldset>
+    <%= image_tag asset.image.url(:thumb) %>
+    <%= link_to "Delete", asset_path(asset), class: 'delete-asset', method: :delete, remote: true %>
+  </fieldset>
+<% end %>
