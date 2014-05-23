@@ -10,6 +10,17 @@ ActiveAdmin.register_page "Dashboard" do
       end
     end
 
+    section "Articles récents" do
+      table_for Article.order("created_at desc").limit(5) do
+        column :title do |article|
+          link_to article.title, [:admin, article]
+        end
+        column :description
+        column :created_at
+      end
+      strong {link_to "Voir tous les articles", admin_articles_path }
+    end
+
     # Here is an example of a simple dashboard with columns and panels.
     #
     # columns do

@@ -1,6 +1,5 @@
 ActiveAdmin.register Article do
 
-
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -18,10 +17,12 @@ ActiveAdmin.register Article do
     column "Titre", :title
     column :description
     column "Prix", :price, :sortable => :price do |article|
-      number_to_currency article.price
+      div :class=> "center" do
+        number_to_currency article.price
+      end
     end
     column "Quantité", :quantity
-    default_actions
+    column "Créé le", :created_at
   end
 
 end
