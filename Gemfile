@@ -30,3 +30,4 @@ gem "better_errors"
 gem "binding_of_caller"
 gem 'bootstrap-sass'
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'acts_as_shopping_cart', '~> 0.2.1'

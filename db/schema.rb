@@ -66,50 +66,13 @@ ActiveRecord::Schema.define(version: 20140523085539) do
     t.datetime "updated_at"
   end
 
-  create_table "assets", force: true do |t|
-    t.integer  "article_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-  end
-
-  add_index "assets", ["article_id"], name: "index_assets_on_article_id", using: :btree
-
-  create_table "comments", force: true do |t|
-    t.string   "comment"
-    t.text     "body"
-    t.integer  "single_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "comments", ["single_id"], name: "index_comments_on_single_id", using: :btree
-
-  create_table "drugstores", force: true do |t|
-    t.string   "name"
-    t.string   "address"
-    t.string   "phone"
-    t.string   "description"
-    t.integer  "Medicament_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "drugstores", ["Medicament_id"], name: "index_drugstores_on_Medicament_id", using: :btree
-
-  create_table "medicaments", force: true do |t|
-    t.string   "name"
-    t.string   "form"
-    t.string   "composition"
-    t.string   "indication"
-    t.string   "dose"
-    t.string   "contraindication"
-    t.integer  "price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "cart_items", force: true do |t|
+    t.integer "owner_id"
+    t.string  "owner_type"
+    t.integer "quantity"
+    t.integer "item_id"
+    t.string  "item_type"
+    t.float   "price"
   end
 
   create_table "pictures", force: true do |t|
@@ -124,12 +87,19 @@ ActiveRecord::Schema.define(version: 20140523085539) do
 
   add_index "pictures", ["article_id"], name: "index_pictures_on_article_id", using: :btree
 
-  create_table "singles", force: true do |t|
-    t.string   "name"
-    t.integer  "age"
-    t.string   "sex"
-    t.string   "description"
-    t.integer  "note"
+
+  create_table "shopping_cart_items", force: true do |t|
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.integer  "quantity"
+    t.integer  "item_id"
+    t.string   "item_type"
+    t.float    "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shopping_carts", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end

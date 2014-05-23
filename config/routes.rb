@@ -6,6 +6,12 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+
+  get 'articles/:article_id/add_to_cart' => "shopping_carts#add_to_cart", as: "add_to_cart"
+  get 'articles/cart/show' => "shopping_carts#show", as: "show"
+  get 'articles/:article_id/remove_from_cart' => "shopping_carts#remove_from_cart", as: "remove_from_cart"
+
+
   get 'static/creators'
   get 'static/actualite'
   get 'static/aide'
@@ -14,21 +20,11 @@ Rails.application.routes.draw do
     resources :pictures, only: [:new, :create, :edit, :update, :destroy]
   end
 
- #get 'articles/new' => 'articles#new'
- #post 'articles' => 'articles#create'
- #get 'articles' => 'articles#index'
- #get 'articles/:id' => 'articles#show'
- #get 'articles/:id/edit' => 'articles#edit'
- #patch 'articles/:id' => 'articles#update'
- #delete 'articles/:id' => 'articles#destroy'
-
-
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'articles#index'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
