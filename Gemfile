@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+ruby '2.1.1'
+
+gem 'sass-rails', '~> 4.0.3'
+
 # Use devise for loggin log out
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -25,3 +29,4 @@ gem 'figaro'
 gem "better_errors"
 gem "binding_of_caller"
 gem 'bootstrap-sass'
+gem 'activeadmin', github: 'gregbell/active_admin'
